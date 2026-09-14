@@ -23,6 +23,15 @@ public class Ball
 
     public void CheckAndReflect(ref Vector2f newPos)
     {
+        // Paddle physics
+        /*
+        paddleBoundsMaxX = paddle.X + paddle.radius
+        paddleBoundsMinX = paddle.X - paddle.radius
+        if (newPos.X > paddleBoundsMinX && newPos.X < paddleBoundsMaxX){
+            
+        }
+         */
+        // Map boundaries
         if (newPos.X > GraphicsSettings.ScreenW - Radius)
         {
             newPos.X = GraphicsSettings.ScreenW - Radius;
