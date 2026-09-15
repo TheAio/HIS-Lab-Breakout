@@ -10,6 +10,9 @@ public class Paddle
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
     
+    Vector2f size;
+    
+    
 
     public void Update (Ball ball, float deltaTime)
     {
@@ -17,7 +20,12 @@ public class Paddle
         Vector2f newPos = sprite.Position;
         
         HandleInput(ref newPos, speed);
-        
+
+        if (Collision.CircleRectangle(ball.sprite.Position, Ball.Radius, this.sprite.Position, size, out Vector2f hit))
+        {
+            ball.sprite.Position += hit;
+            ball.Reflect(hit.Normalized());
+        }
         
     }
 
@@ -57,5 +65,7 @@ public class Paddle
         Vector2f paddleTextureSize = (Vector2f) sprite.Texture.Size;
         sprite.Origin = 0.5f * paddleTextureSize;
         sprite.Scale = new Vector2f(Diameter / paddleTextureSize.Y, Diameter / paddleTextureSize.Y);
+        
+        size = new Vector2f(sprite.GetGlobalBounds().Width, sprite.GetGlobalBounds().Height);
     }
 }
