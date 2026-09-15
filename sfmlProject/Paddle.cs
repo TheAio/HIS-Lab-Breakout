@@ -11,12 +11,14 @@ public class Paddle
     public const float Radius = Diameter * 0.5f;
     
 
-    public void Update (float deltaTime)
+    public void Update (Ball ball, float deltaTime)
     {
         float speed = deltaTime * 300f;
         Vector2f newPos = sprite.Position;
         
         HandleInput(ref newPos, speed);
+        
+        
     }
 
     public void Draw(RenderTarget target)

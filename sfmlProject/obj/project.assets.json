@@ -466,11 +466,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Desktop\\HIS-Lab-Breakout\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj",
+      "projectUniqueName": "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj",
       "projectName": "sfmlProject",
-      "projectPath": "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Desktop\\HIS-Lab-Breakout\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj",
+      "projectPath": "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj",
       "packagesPath": "C:\\Users\\c26alejo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Desktop\\HIS-Lab-Breakout\\HIS-Lab-Breakout\\sfmlProject\\obj\\",
+      "outputPath": "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Documents\\GitHub\\HIS-Lab-Breakout\\sfmlProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\c26alejo\\AppData\\Roaming\\NuGet\\NuGet.Config"
