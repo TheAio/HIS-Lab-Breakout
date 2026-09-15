@@ -9,19 +9,34 @@ public class Ball
     public Sprite sprite;
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
+    public int health = 3;
+    public int score = 0;
+    public Text gui;
+    public bool isBallIdle = false;
+    public float speed;
+    public Program program = new Program();
     
     public Vector2f direction = new Vector2f(1,1) / MathF.Sqrt(2.0f);
     
-    public void Update(float deltaTime)
+    public void Update(float deltaTime, Paddle paddle)
     {
-        float speed = deltaTime * 100.0f;
         Vector2f newPos = sprite.Position;
+        if (isBallIdle)
+        {
+            
+            speed = deltaTime * 0f;
+            newPos = paddle.sprite.Position - new  Vector2f(0, 22);
+        }
+        else
+        {
+            speed = deltaTime * 500.0f;
+        }
         newPos += direction * speed;
-        CheckAndReflect(ref newPos);
+        CheckAndReflect(ref newPos, paddle);
         sprite.Position = newPos;
     }
 
-    public void CheckAndReflect(ref Vector2f newPos)
+    public void CheckAndReflect(ref Vector2f newPos, Paddle paddle)
     {
         // Paddle physics
         /*
@@ -42,8 +57,13 @@ public class Ball
             Reflect(new Vector2f(1, 0));
         } else if (newPos.Y > GraphicsSettings.ScreenH - Radius)
         {
+            //If we touch the bottom, reduce health and reset ball.
+            health--;
             newPos.Y = GraphicsSettings.ScreenH - Radius;
-            Reflect(new Vector2f(0, -1));
+            //newPos = new Vector2f(250, 300);
+            newPos = paddle.sprite.Position - new  Vector2f(0, 5);
+            //float speed = deltaTime * 100.0f;
+            isBallIdle = true;
         }
         else if (newPos.Y < Radius)
         {
@@ -55,6 +75,12 @@ public class Ball
     public void Draw(RenderTarget target)
     {
         target.Draw(sprite);
+        gui.DisplayedString = $"Health: {health}";
+        gui.Position = new Vector2f(12, 8);
+        target.Draw(gui);
+        gui.DisplayedString = $"Score: {score}";
+        gui.Position = new Vector2f(GraphicsSettings.ScreenW - gui.GetGlobalBounds().Width - 12, 8);
+        target.Draw(gui);
     }
 
     public void Reflect(Vector2f normal)
@@ -74,6 +100,8 @@ public class Ball
         Vector2f ballTextureSize = (Vector2f) sprite.Texture.Size;
         sprite.Origin = 0.5f * ballTextureSize;
         sprite.Scale = new Vector2f(Diameter / ballTextureSize.X, Diameter / ballTextureSize.Y);
-        
+        gui = new Text();
+        gui.CharacterSize = 24;
+        gui.Font = new Font("assets/future.ttf");
     }
 }
