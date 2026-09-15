@@ -26,7 +26,6 @@ class Program
                 paddle.Draw(window);
                 // TODO: Drawing
                 window.Display();
-                // test
             }
         }
     }

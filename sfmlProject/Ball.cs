@@ -7,20 +7,22 @@ namespace sfmlProject;
 public class Ball
 {
     public Sprite sprite;
+    private Program program = new();
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
     public int health = 3;
     public int score = 0;
     public Text gui;
-    public bool isBallIdle = false;
+    public bool isBallIdle = true;
     public float speed;
-    Random seed = new Random();
-    public float roll;
+    Random seed = new();
+    //public float roll;
     
     public Vector2f direction = new Vector2f(1,1) / MathF.Sqrt(2.0f);
     
     public void Update(float deltaTime, Paddle paddle, RenderWindow window)
     {
+        checkHealth();
         Vector2f newPos = sprite.Position;
         if (isBallIdle)
         {
@@ -63,14 +65,6 @@ public class Ball
 
     public void CheckAndReflect(ref Vector2f newPos, Paddle paddle)
     {
-        // Paddle physics
-        /*
-        paddleBoundsMaxX = paddle.X + paddle.radius
-        paddleBoundsMinX = paddle.X - paddle.radius
-        if (newPos.X > paddleBoundsMinX && newPos.X < paddleBoundsMaxX){
-            
-        }
-         */
         // Map boundaries
         if (newPos.X > GraphicsSettings.ScreenW - Radius)
         {
@@ -99,9 +93,6 @@ public class Ball
 
     public void Draw(RenderTarget target)
     {
-        gui.DisplayedString = $"bool: {isBallIdle}";
-        gui.Position = new Vector2f(8, 30);
-        target.Draw(gui);
         target.Draw(sprite);
         gui.DisplayedString = $"Health: {health}";
         gui.Position = new Vector2f(12, 8);
@@ -118,6 +109,15 @@ public class Ball
          Calculates the mathematically correct reflection vector based on the normal vector,
          in a box this is overkill, as there are only 2 predictable reflections but this is mathematically correct.
          */
+    }
+
+    public void checkHealth()
+    {
+        if (health <= 0)
+        {
+            health = 3;
+            score = 0;
+        }
     }
     
     public Ball()
