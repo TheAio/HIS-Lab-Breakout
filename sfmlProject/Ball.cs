@@ -14,18 +14,43 @@ public class Ball
     public Text gui;
     public bool isBallIdle = false;
     public float speed;
-    public Program program = new Program();
+    Random seed = new Random();
+    public float roll;
     
     public Vector2f direction = new Vector2f(1,1) / MathF.Sqrt(2.0f);
     
-    public void Update(float deltaTime, Paddle paddle)
+    public void Update(float deltaTime, Paddle paddle, RenderWindow window)
     {
         Vector2f newPos = sprite.Position;
         if (isBallIdle)
         {
-            
             speed = deltaTime * 0f;
             newPos = paddle.sprite.Position - new  Vector2f(0, 22);
+            window.KeyPressed += (o, e) =>
+            {
+                if (e.Code == Keyboard.Key.Space && isBallIdle) //TODO: Fråga cissi om varför vi behöver felhantera med en extra bool
+                {
+                    if (seed.Next(0, 2) == 0)
+                    {
+                        direction.X = -1;
+                    }
+                    else
+                    {
+                        direction.X = 1;
+                    }
+                    /*roll = seed.Next(-1, 2);
+                    if (roll > -0.1f || roll < 0.1f)
+                    {
+                        roll += 0.2f;
+                    }    
+                    //TODO : Fråga cissi om detta, vi kunde inte lösa med hjälp av classmates
+                    direction.X = roll;
+                    direction.Y = MathF.Sqrt(direction.X*2 - (roll * roll));
+                    direction = direction / MathF.Sqrt(2.0f);*/
+                    isBallIdle = false;
+                }
+            };
+            
         }
         else
         {
@@ -74,6 +99,9 @@ public class Ball
 
     public void Draw(RenderTarget target)
     {
+        gui.DisplayedString = $"bool: {isBallIdle}";
+        gui.Position = new Vector2f(8, 30);
+        target.Draw(gui);
         target.Draw(sprite);
         gui.DisplayedString = $"Health: {health}";
         gui.Position = new Vector2f(12, 8);
