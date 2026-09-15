@@ -1,2 +1,5 @@
 # HIS-Lab-Breakout
-Our (fat rat group) sollution to the breakout lab assignment from HIS (2026)
+Our (fat rat group) solution to the breakout lab assignment from HIS (2026)
+Additional credits, some assets and code provided by:
+Emil Forslund and Kenney
+under CC-BY 4.0
