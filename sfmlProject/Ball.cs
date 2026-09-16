@@ -7,7 +7,7 @@ namespace sfmlProject;
 public class Ball
 {
     public Sprite sprite;
-    private Program program = new();
+    //private Tiles tiles = new();
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
     public int health = 3;
@@ -20,9 +20,9 @@ public class Ball
     
     public Vector2f direction = new Vector2f(1,1) / MathF.Sqrt(2.0f);
     
-    public void Update(float deltaTime, Paddle paddle, RenderWindow window)
+    public void Update(float deltaTime, Paddle paddle, RenderWindow window, Tiles tiles)
     {
-        checkHealth();
+        CheckHealth(tiles);
         Vector2f newPos = sprite.Position;
         if (isBallIdle)
         {
@@ -111,12 +111,14 @@ public class Ball
          */
     }
 
-    public void checkHealth()
+    public void CheckHealth(Tiles tiles)
     {
         if (health <= 0)
         {
             health = 3;
             score = 0;
+            
+            tiles.CreateTiles();
         }
     }
     

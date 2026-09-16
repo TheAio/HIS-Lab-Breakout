@@ -19,8 +19,9 @@ class Program
             {
                 float deltaTime = clock.Restart().AsSeconds();
                 window.DispatchEvents();
-                ball.Update(deltaTime, paddle, window);
+                ball.Update(deltaTime, paddle, window, tiles);
                 paddle.Update(ball, deltaTime);
+                tiles.Update(tiles, ball, deltaTime);
                 // TODO: Updates
                 window.Clear(new Color(131, 197, 235));
                 ball.Draw(window);
