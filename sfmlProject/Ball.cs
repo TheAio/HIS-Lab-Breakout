@@ -20,9 +20,9 @@ public class Ball
     
     public Vector2f direction = new Vector2f(1,1) / MathF.Sqrt(2.0f);
     
-    public void Update(float deltaTime, Paddle paddle, RenderWindow window, Tiles tiles)
+    public void Update(float deltaTime, Paddle paddle, RenderWindow window, Tiles tiles, Pause pause)
     {
-        CheckHealth(tiles);
+        CheckHealth(tiles, pause);
         Vector2f newPos = sprite.Position;
         if (isBallIdle)
         {
@@ -111,14 +111,18 @@ public class Ball
          */
     }
 
-    public void CheckHealth(Tiles tiles)
+    public void CheckHealth(Tiles tiles, Pause pause)
     {
         if (health <= 0)
         {
-            health = 3;
-            score = 0;
-            
-            tiles.CreateTiles();
+            pause.PauseGame();
+            /*if (!pause.isPaused)
+            {
+                health = 3;
+                score = 0;
+                
+                tiles.CreateTiles();
+            }*/
         }
     }
     

@@ -15,19 +15,28 @@ class Program
             Ball ball = new();
             Paddle paddle = new();
             Tiles tiles = new();
+            Pause pause = new();
             while (window.IsOpen)
             {
                 float deltaTime = clock.Restart().AsSeconds();
                 window.DispatchEvents();
-                ball.Update(deltaTime, paddle, window, tiles);
-                paddle.Update(ball, deltaTime);
-                tiles.Update(tiles, ball, deltaTime);
-                // TODO: Updates
-                window.Clear(new Color(131, 197, 235));
-                ball.Draw(window);
-                paddle.Draw(window);
-                tiles.Draw(window);
-                // TODO: Drawing
+                if (!pause.isPaused)
+                {
+                    ball.Update(deltaTime, paddle, window, tiles, pause);
+                    paddle.Update(ball, deltaTime);
+                    tiles.Update(tiles, ball, deltaTime);
+                    window.Clear(new Color(131, 197, 235));
+                    ball.Draw(window);
+                    paddle.Draw(window);
+                    tiles.Draw(window);
+                }
+                else
+                {
+                    pause.Update(window, ball, tiles);
+                    window.Clear(new Color(131, 197, 235));
+                    pause.Draw(window);
+                }
+
                 window.Display();
             }
         }
