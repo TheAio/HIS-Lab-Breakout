@@ -11,9 +11,10 @@ class Program
         using (var window = new RenderWindow(new VideoMode(GraphicsSettings.ScreenW, GraphicsSettings.ScreenH), "breakout"))
         {
             window.Closed += (o, e) => window.Close();
-            Clock clock = new Clock();
-            Ball ball = new Ball();
-            Paddle paddle = new Paddle();
+            Clock clock = new();
+            Ball ball = new();
+            Paddle paddle = new();
+            Tiles tiles = new();
             while (window.IsOpen)
             {
                 float deltaTime = clock.Restart().AsSeconds();
@@ -24,6 +25,7 @@ class Program
                 window.Clear(new Color(131, 197, 235));
                 ball.Draw(window);
                 paddle.Draw(window);
+                tiles.Draw(window);
                 // TODO: Drawing
                 window.Display();
             }
