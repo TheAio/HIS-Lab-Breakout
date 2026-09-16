@@ -56,7 +56,7 @@ public class Ball
         }
         else
         {
-            speed = deltaTime * 500.0f;
+            speed = deltaTime * 1000.0f;
         }
         newPos += direction * speed;
         CheckAndReflect(ref newPos, paddle);

@@ -33,7 +33,7 @@ class Program
                 else
                 {
                     pause.Update(window, ball, tiles);
-                    window.Clear(new Color(131, 197, 235));
+                    window.Clear(new Color(101, 167, 205));
                     pause.Draw(window);
                 }
 
