@@ -48,7 +48,7 @@ public class Pause
     public Pause()
     {
         gui = new Text();
-        gui.CharacterSize = 24;
+        gui.CharacterSize = 12;
         gui.Font = new Font("assets/future.ttf");
     }
 }

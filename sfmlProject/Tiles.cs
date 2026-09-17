@@ -53,7 +53,7 @@ public class Tiles
         {
             sprite.Position = positions[i];
             target.Draw(sprite);
-            int roll = seed.Next(0, 2);
+            /*int roll = seed.Next(0, 2);
             if (roll == 0)
             {
                 sprite.Color = Color.Red;
@@ -62,7 +62,7 @@ public class Tiles
             else if (roll == 1)
             {
                 sprite.Color = Color.Yellow;
-            }
+            }*/
         }
     }
 
