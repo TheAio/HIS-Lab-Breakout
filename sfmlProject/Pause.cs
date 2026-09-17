@@ -9,7 +9,6 @@ public class Pause
     // ReSharper disable once InconsistentNaming
     public bool isPaused = true; //TODO: revert to false
     public Text gui = new();
-    public Ball ball = new();
     
   public void PauseGame()
     {
@@ -32,15 +31,15 @@ public class Pause
         };
     }
 
-    public void Draw(RenderTarget target)
+    public void Draw(RenderTarget target, Ball ball)
     {
-        if (ball.health > 0)
+        if (ball.health <= 0)
         {
-            gui.DisplayedString = "The game is now paused!";
+            gui.DisplayedString = "Unfortunately you suck at the game.";
         }
         else
         {
-            gui.DisplayedString = "You are dead!";
+            gui.DisplayedString = "The game is now paused!";
         }
         gui.Position = new Vector2f(12, 8);
         target.Draw(gui);

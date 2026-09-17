@@ -34,7 +34,7 @@ class Program
                 {
                     pause.Update(window, ball, tiles);
                     window.Clear(new Color(101, 167, 205));
-                    pause.Draw(window);
+                    pause.Draw(window, ball);
                 }
 
                 window.Display();
