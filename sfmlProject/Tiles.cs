@@ -17,8 +17,13 @@ public class Tiles
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
 
-    public void Update(Tiles tile, Ball ball, float deltaTime)
+    public void Update(Tiles tile, Ball ball, float deltaTime, Pause pause)
     {
+        if (ball.score > 2499)
+        {
+            pause.isPaused = true;
+        }
+        
         for (int i = 0; i < positions.Count; i++)
         {
             var pos = positions[i];

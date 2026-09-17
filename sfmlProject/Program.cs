@@ -24,7 +24,7 @@ class Program
                 {
                     ball.Update(deltaTime, paddle, window, tiles, pause);
                     paddle.Update(ball, deltaTime);
-                    tiles.Update(tiles, ball, deltaTime);
+                    tiles.Update(tiles, ball, deltaTime, pause);
                     window.Clear(new Color(131, 197, 235));
                     ball.Draw(window);
                     paddle.Draw(window);

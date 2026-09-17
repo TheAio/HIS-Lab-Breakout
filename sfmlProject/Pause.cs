@@ -7,7 +7,7 @@ namespace sfmlProject;
 public class Pause
 {
     // ReSharper disable once InconsistentNaming
-    public bool isPaused = true; //TODO: revert to false
+    public bool isPaused;
     public Text gui = new();
     
   public void PauseGame()
@@ -35,11 +35,11 @@ public class Pause
     {
         if (ball.health <= 0)
         {
-            gui.DisplayedString = "Unfortunately you suck at the game.";
+            gui.DisplayedString = $"Game over!\nFinal score: {ball.score}";
         }
         else
         {
-            gui.DisplayedString = "The game is now paused!";
+            gui.DisplayedString = $"You win!\nFinal score: {ball.score}";
         }
         gui.Position = new Vector2f(12, 8);
         target.Draw(gui);

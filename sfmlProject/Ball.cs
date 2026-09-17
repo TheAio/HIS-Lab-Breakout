@@ -15,6 +15,7 @@ public class Ball
     public Text gui;
     public bool isBallIdle = true;
     public float speed;
+    public float ballSpeedMultiplier = 250f;
     Random seed = new();
     //public float roll;
     
@@ -56,7 +57,7 @@ public class Ball
         }
         else
         {
-            speed = deltaTime * 1000.0f;
+            speed = deltaTime * ballSpeedMultiplier;
         }
         newPos += direction * speed;
         CheckAndReflect(ref newPos, paddle);
