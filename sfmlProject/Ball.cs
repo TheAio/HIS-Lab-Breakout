@@ -31,7 +31,7 @@ public class Ball
             newPos = paddle.sprite.Position - new  Vector2f(0, 22);
             window.KeyPressed += (o, e) =>
             {
-                if (e.Code == Keyboard.Key.Space && isBallIdle) //TODO: Fråga cissi om varför vi behöver felhantera med en extra bool
+                if (e.Code == Keyboard.Key.Space && isBallIdle && !pause.isPaused) //TODO: Fråga cissi om varför vi behöver felhantera med en extra bool
                 {
                     if (seed.Next(0, 2) == 0)
                     {

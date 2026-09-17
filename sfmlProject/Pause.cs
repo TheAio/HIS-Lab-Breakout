@@ -21,7 +21,7 @@ public class Pause
         window.KeyPressed += (o, e) =>
         {
             //TODO Change space to another key it is TEMPORARY
-            if (e.Code == Keyboard.Key.Space && isPaused)
+            if (e.Code == Keyboard.Key.B && isPaused)
             {
                 ball.health = 3;
                 ball.score = 0;
