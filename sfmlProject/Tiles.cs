@@ -17,11 +17,12 @@ public class Tiles
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
 
-    public void Update(Tiles tile, Ball ball, float deltaTime, Pause pause)
+    public void Update(Tiles tile, Ball ball, float deltaTime, Pause pause, Paddle paddle)
     {
         if (ball.score > 2499)
         {
             pause.isPaused = true;
+            paddle.sprite.Position = new Vector2f((GraphicsSettings.ScreenW / 2f), 650f);
         }
         
         for (int i = 0; i < positions.Count; i++)

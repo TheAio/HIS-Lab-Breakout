@@ -23,7 +23,7 @@ public class Ball
     
     public void Update(float deltaTime, Paddle paddle, RenderWindow window, Tiles tiles, Pause pause)
     {
-        CheckHealth(tiles, pause);
+        CheckHealth(tiles, pause, paddle);
         Vector2f newPos = sprite.Position;
         if (isBallIdle)
         {
@@ -112,11 +112,11 @@ public class Ball
          */
     }
 
-    public void CheckHealth(Tiles tiles, Pause pause)
+    public void CheckHealth(Tiles tiles, Pause pause, Paddle paddle)
     {
         if (health <= 0)
         {
-            pause.PauseGame();
+            pause.PauseGame(paddle);
             /*if (!pause.isPaused)
             {
                 health = 3;

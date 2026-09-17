@@ -10,8 +10,9 @@ public class Pause
     public bool isPaused;
     public Text gui = new();
     
-  public void PauseGame()
+  public void PauseGame(Paddle paddle)
     {
+        paddle.sprite.Position = new Vector2f((GraphicsSettings.ScreenW / 2f), 650f);
         isPaused = true;
     }
 
