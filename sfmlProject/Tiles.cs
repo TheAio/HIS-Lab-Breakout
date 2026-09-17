@@ -17,7 +17,7 @@ public class Tiles
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
 
-    public void Update(Tiles tile, Ball ball, float deltaTime, Pause pause, Paddle paddle)
+    public void Update(Tiles tile, Ball ball, float deltaTime, Pause pause, Paddle paddle, Powerup powerup)
     {
         if (ball.score > 2499)
         {
@@ -32,19 +32,11 @@ public class Tiles
             {
                 ball.sprite.Position += hit;
                 ball.Reflect(hit.Normalized());
+                powerup.SpawnPowerUp(positions[i]);
                 positions.RemoveAt(i);
                 //i = 0; i är ju deklarerat i for loopen varje frame ändå? är inte i reduntant här? loopen körs ju ändå varje frame vilket innebär att 
                 ball.score += 100;
             }
-        }
-    }
-
-    public void PowerUp()
-    {
-        int roll = seed.Next(0, 9);
-        if (roll == 0)
-        {
-            
         }
     }
     
@@ -79,6 +71,8 @@ public class Tiles
             }
         }
     }
+
+
 
     public Tiles()
     {

@@ -31,7 +31,7 @@ public class Ball
             newPos = paddle.sprite.Position - new  Vector2f(0, 22);
             window.KeyPressed += (o, e) =>
             {
-                if (e.Code == Keyboard.Key.Space && isBallIdle && !pause.isPaused) //TODO: Fråga cissi om varför vi behöver felhantera med en extra bool
+                if (e.Code == Keyboard.Key.Space && isBallIdle && !pause.isPaused)
                 {
                     if (seed.Next(0, 2) == 0)
                     {
@@ -41,15 +41,6 @@ public class Ball
                     {
                         direction.X = 1;
                     }
-                    /*roll = seed.Next(-1, 2);
-                    if (roll > -0.1f || roll < 0.1f)
-                    {
-                        roll += 0.2f;
-                    }    
-                    //TODO : Fråga cissi om detta, vi kunde inte lösa med hjälp av classmates
-                    direction.X = roll;
-                    direction.Y = MathF.Sqrt(direction.X*2 - (roll * roll));
-                    direction = direction / MathF.Sqrt(2.0f);*/
                     isBallIdle = false;
                 }
             };

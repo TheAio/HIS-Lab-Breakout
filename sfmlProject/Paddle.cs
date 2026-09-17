@@ -12,6 +12,7 @@ public class Paddle
     
     Vector2f size;
     
+    //TODO: THE BALL KEEPS DIRECTION WHEN PLACED ON PADDLE AFTER LOSS
     
 
     public void Update (Ball ball, float deltaTime)
