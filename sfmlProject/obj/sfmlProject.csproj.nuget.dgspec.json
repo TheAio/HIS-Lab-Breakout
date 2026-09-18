@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a26kylru\\OneDrive - Högskolan i Skövde\\Desktop\\baap\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj": {}
+    "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Desktop\\blablablabu\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a26kylru\\OneDrive - Högskolan i Skövde\\Desktop\\baap\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj": {
+    "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Desktop\\blablablabu\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a26kylru\\OneDrive - Högskolan i Skövde\\Desktop\\baap\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj",
+        "projectUniqueName": "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Desktop\\blablablabu\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj",
         "projectName": "sfmlProject",
-        "projectPath": "C:\\Users\\a26kylru\\OneDrive - Högskolan i Skövde\\Desktop\\baap\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj",
-        "packagesPath": "C:\\Users\\a26kylru\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a26kylru\\OneDrive - Högskolan i Skövde\\Desktop\\baap\\HIS-Lab-Breakout\\sfmlProject\\obj\\",
+        "projectPath": "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Desktop\\blablablabu\\HIS-Lab-Breakout\\sfmlProject\\sfmlProject.csproj",
+        "packagesPath": "C:\\Users\\c26alejo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\c26alejo\\OneDrive - Högskolan i Skövde\\Desktop\\blablablabu\\HIS-Lab-Breakout\\sfmlProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a26kylru\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\c26alejo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
