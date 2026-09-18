@@ -6,7 +6,6 @@ namespace sfmlProject;
 
 public class Pause
 {
-    // ReSharper disable once InconsistentNaming
     public bool isPaused;
     public Text gui = new();
     
@@ -24,6 +23,7 @@ public class Pause
             {
                 ball.health = 3;
                 ball.score = 0;
+                ball.isBallIdle = true;
                 tiles.CreateTiles();
                 
                 isPaused = false;

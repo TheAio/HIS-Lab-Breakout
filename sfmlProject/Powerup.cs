@@ -18,7 +18,6 @@ public class Powerup
         sprite = new Sprite();
         sprite.Texture = new Texture("assets/ball.png");
         sprite.Color = Color.Black;
-        // sätt sprite position till origin från destroyed tile
         
         Vector2f powerupTextureSize = (Vector2f)sprite.Texture.Size;
         sprite.Origin = 0.5f * powerupTextureSize;
@@ -43,7 +42,7 @@ public class Powerup
     }
     public void SpawnPowerUp(Vector2f spawnPosition)
     {
-        if (seed.Next(0,9) >= 4 && powerups.Count < 1)
+        if (seed.Next(0,9) == 0 && powerups.Count < 1)
         {
             powerups.Add(new Powerup());
             powerups[powerups.Count-1].sprite.Position = spawnPosition;

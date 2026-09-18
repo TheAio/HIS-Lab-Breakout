@@ -10,15 +10,15 @@ public class Paddle
     public Sprite sprite;
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
-    public float paddleSizeMulti = 1f;
-    private DateTime timer1 = new();
-    private DateTime timer2 = new();
+    private DateTime timer1;
+    private DateTime timer2;
     
-    private bool isPoweredUp = false;
+    private bool isPoweredUp;
     
     public Vector2f size;
     
     //TODO: THE BALL KEEPS DIRECTION WHEN PLACED ON PADDLE AFTER LOSS
+    //TODO: DONT KNOW HOW TO SOLVE
     
 
     public void Update (Ball ball, float deltaTime, Powerup powerup, Paddle paddle)
@@ -45,34 +45,29 @@ public class Paddle
                 powerup.powerups.Remove(pW);
                 if (!isPoweredUp)
                 {
-                    Console.WriteLine("shtu the fck up");
-                    paddleSizeMulti = 2f;
                     IncreasePaddleSize(paddle);
                     isPoweredUp = true;
                     timer1 = DateTime.Now.AddSeconds(1);
                 }
             }
         }
-        
+
         timer2 = DateTime.Now.AddSeconds(1);
         double timer = (timer2 - timer1).TotalSeconds;
+        
         if ((timer > 4) && isPoweredUp)
         {
-            Console.WriteLine("shtu the fck down");
-            paddleSizeMulti = 1f;
-            ResetPaddleSize(paddle);
+            ResetPaddleSize();
             isPoweredUp = false;
         }
-
-        Console.WriteLine(timer);
         
             
         void IncreasePaddleSize(Paddle paddle)
         {
-            paddle.sprite.Scale = new Vector2f(paddle.sprite.Scale.X * paddleSizeMulti, paddle.sprite.Scale.Y);
+            paddle.sprite.Scale = new Vector2f(paddle.sprite.Scale.X * 2f, paddle.sprite.Scale.Y);
         }
 
-        void ResetPaddleSize(Paddle pPaddle)
+        void ResetPaddleSize()
         {
             Vector2f paddleTextureSize = (Vector2f) sprite.Texture.Size;
             sprite.Scale = new Vector2f(Diameter / paddleTextureSize.Y, Diameter / paddleTextureSize.Y);
