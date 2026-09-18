@@ -7,25 +7,23 @@ public class Powerup
 {
     public Sprite sprite;
     public const float Diameter = 20f;
-    public float Radius = Diameter * 0.5f;
-    Vector2f size;
+    public const float Radius = Diameter * 0.5f;
+    
     Random seed = new();
 
-    private List<Powerup> powerups = new();
+    public List<Powerup> powerups = new();
 
     public Powerup()
     {
         sprite = new Sprite();
-        sprite.Texture = new Texture("assets/paddle.png");
-        // sprite.Color = Color.Black;
+        sprite.Texture = new Texture("assets/ball.png");
+        sprite.Color = Color.Black;
         // sätt sprite position till origin från destroyed tile
         
         Vector2f powerupTextureSize = (Vector2f)sprite.Texture.Size;
         sprite.Origin = 0.5f * powerupTextureSize;
         sprite.Scale = new Vector2f(Diameter / powerupTextureSize.X, Diameter / powerupTextureSize.Y);
         sprite.Position = new Vector2f();
-        
-        size = new Vector2f(sprite.GetGlobalBounds().Width, sprite.GetGlobalBounds().Height);
     }
 
     public void Update(float deltaTime)

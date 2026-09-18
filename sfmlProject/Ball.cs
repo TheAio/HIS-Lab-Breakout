@@ -7,9 +7,9 @@ namespace sfmlProject;
 public class Ball
 {
     public Sprite sprite;
-    //private Tiles tiles = new();
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
+    
     public int health = 3;
     public int score = 0;
     public Text gui;

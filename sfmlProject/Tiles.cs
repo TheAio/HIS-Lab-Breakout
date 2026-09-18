@@ -51,7 +51,7 @@ public class Tiles
             if (isLiving[i])
             {
                 sprite.Position = positions[i];
-                sprite.Texture = new Texture(textures[i]);
+                //sprite.Texture = new Texture(textures[i]);
                 //clubs are tasty
                 target.Draw(sprite);
             }

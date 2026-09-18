@@ -13,6 +13,8 @@ public class Paddle
     Clock timer = new Clock();
     private float startTimer = 0;
     private bool isPowerup = false;
+
+    private int j = 0;
     
     public Vector2f size;
     
@@ -31,15 +33,18 @@ public class Paddle
             ball.sprite.Position += hit;
             ball.Reflect(hit.Normalized());
         }
-        
-        if (Collision.CircleRectangle(powerup.sprite.Origin, powerup.Radius, sprite.Position, size, out Vector2f shit))
+
+        foreach (Powerup pW in powerup.powerups)
         {
-            Console.WriteLine("shtu the fck up");
-            startTimer = timer.Restart().AsSeconds();
-            if (true)
+            if (Collision.CircleRectangle(pW.sprite.Position, Powerup.Radius, sprite.Position, size, out Vector2f shit))
             {
-                sprite.Scale *= 2f;
-            }
+                Console.WriteLine("shtu the fck up" + j);
+                startTimer = timer.Restart().AsSeconds();
+                if (true)
+                {
+                    sprite.Scale *= 2f;
+                }
+            }   
             // restart timer
             // have if with bool for powerup inside here
             // check elapsed time outside

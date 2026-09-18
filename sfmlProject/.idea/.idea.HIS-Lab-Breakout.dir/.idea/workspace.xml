@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c444bd24-0add-4180-b32e-bed14bffedb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HIS-Lab-Breakout.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HIS-Lab-Breakout.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Folder.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Folder.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Paddle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Paddle.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Powerup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Powerup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tiles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tiles.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/sfmlProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/sfmlProject.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/sfmlProject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/sfmlProject.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/sfmlProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/sfmlProject.pdb" afterDir="false" />
@@ -18,10 +18,11 @@
       <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/refint/sfmlProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/refint/sfmlProject.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +49,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cf4b14b02ff94a8589626fa5288ddc783800/af/4aa41b79/Clock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/obj/Debug/net10.0/sfmlProject.sourcelink.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -101,8 +103,16 @@
       <option name="presentableId" value="Default" />
       <updated>1789471865045</updated>
       <workItem from="1789471866459" duration="5494000" />
-      <workItem from="1789719205383" duration="6480000" />
+      <workItem from="1789719205383" duration="8468000" />
     </task>
+    <task id="LOCAL−00001" summary="asdasdasd">
+      <option name="closed" value="true" />
+      <created>1789725944361</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1789725944361</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +122,8 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="asdasdasd" />
+    <option name="LAST_COMMIT_MESSAGE" value="asdasdasd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
