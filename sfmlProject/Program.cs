@@ -24,7 +24,7 @@ class Program
                 if (!pause.isPaused)
                 {
                     ball.Update(deltaTime, paddle, window, tiles, pause);
-                    paddle.Update(ball, deltaTime);
+                    paddle.Update(ball, deltaTime, powerup);
                     tiles.Update(tiles, ball, deltaTime, pause, paddle, powerup);
                     powerup.Update(deltaTime);
                     window.Clear(new Color(131, 197, 235));

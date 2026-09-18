@@ -7,7 +7,7 @@ public class Powerup
 {
     public Sprite sprite;
     public const float Diameter = 20f;
-    public const float Radius = Diameter * 0.5f;
+    public float Radius = Diameter * 0.5f;
     Vector2f size;
     Random seed = new();
 
@@ -30,7 +30,6 @@ public class Powerup
 
     public void Update(float deltaTime)
     {
-        //if (Collision.CircleRectangle(sprite.Origin, Powerup.Radius,))
         foreach (Powerup powerup in powerups)
         {
             powerup.sprite.Position += new Vector2f(0,100f) * deltaTime;
@@ -46,7 +45,7 @@ public class Powerup
     }
     public void SpawnPowerUp(Vector2f spawnPosition)
     {
-        if (seed.Next(0,9) == 0)
+        if (seed.Next(0,9) >= 0)
         {
             powerups.Add(new Powerup());
             powerups[powerups.Count-1].sprite.Position = spawnPosition;

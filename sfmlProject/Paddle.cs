@@ -10,12 +10,16 @@ public class Paddle
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
     
-    Vector2f size;
+    Clock timer = new Clock();
+    private float startTimer = 0;
+    private bool isPowerup = false;
+    
+    public Vector2f size;
     
     //TODO: THE BALL KEEPS DIRECTION WHEN PLACED ON PADDLE AFTER LOSS
     
 
-    public void Update (Ball ball, float deltaTime)
+    public void Update (Ball ball, float deltaTime, Powerup powerup)
     {
         float speed = deltaTime * 300f;
         Vector2f newPos = sprite.Position;
@@ -26,6 +30,21 @@ public class Paddle
         {
             ball.sprite.Position += hit;
             ball.Reflect(hit.Normalized());
+        }
+        
+        if (Collision.CircleRectangle(powerup.sprite.Origin, powerup.Radius, sprite.Position, size, out Vector2f shit))
+        {
+            Console.WriteLine("shtu the fck up");
+            startTimer = timer.Restart().AsSeconds();
+            if (true)
+            {
+                sprite.Scale *= 2f;
+            }
+            // restart timer
+            // have if with bool for powerup inside here
+            // check elapsed time outside
+            // when elapsed time reaches greater than 4 turn off powerup
+
         }
         
     }
