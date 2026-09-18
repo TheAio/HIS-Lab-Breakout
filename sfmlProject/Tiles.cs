@@ -52,6 +52,7 @@ public class Tiles
             {
                 sprite.Position = positions[i];
                 sprite.Texture = new Texture(textures[i]);
+                //clubs are tasty
                 target.Draw(sprite);
             }
             /*int roll = seed.Next(0, 2);
