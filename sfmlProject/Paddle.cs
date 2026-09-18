@@ -9,22 +9,24 @@ public class Paddle
     public Sprite sprite;
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
+    public float paddleSizeMulti = 1f;
     
     Clock timer = new Clock();
     private float startTimer = 0;
     private bool isPowerup = false;
-
-    private int j = 0;
     
     public Vector2f size;
     
     //TODO: THE BALL KEEPS DIRECTION WHEN PLACED ON PADDLE AFTER LOSS
     
 
-    public void Update (Ball ball, float deltaTime, Powerup powerup)
+    public void Update (Ball ball, float deltaTime, Powerup powerup, Paddle paddle)
     {
         float speed = deltaTime * 300f;
         Vector2f newPos = sprite.Position;
+        
+        sprite.Scale = new Vector2f(sprite.Scale.X, sprite.Scale.Y);
+        size = new Vector2f(sprite.GetGlobalBounds().Width, sprite.GetGlobalBounds().Height);
         
         HandleInput(ref newPos, speed);
 
@@ -34,22 +36,35 @@ public class Paddle
             ball.Reflect(hit.Normalized());
         }
 
-        foreach (Powerup pW in powerup.powerups)
+        foreach (Powerup pW in powerup.powerups.ToList())
         {
             if (Collision.CircleRectangle(pW.sprite.Position, Powerup.Radius, sprite.Position, size, out Vector2f shit))
             {
-                Console.WriteLine("shtu the fck up" + j);
+                Console.WriteLine("shtu the fck up");
                 startTimer = timer.Restart().AsSeconds();
-                if (true)
+                powerup.powerups.Remove(pW);
+                if (!isPowerup)
                 {
-                    sprite.Scale *= 2f;
+                    paddleSizeMulti = 2f;
+                    ChangePaddleSize(paddle);
+                    isPowerup = true;
                 }
-            }   
+            }
+            if (timer.ElapsedTime.AsSeconds() > 4)
+            {
+                paddleSizeMulti = 1f;
+                ChangePaddleSize(paddle);
+                isPowerup = false;
+            }
             // restart timer
             // have if with bool for powerup inside here
             // check elapsed time outside
             // when elapsed time reaches greater than 4 turn off powerup
 
+            void ChangePaddleSize(Paddle paddle)
+            {
+                paddle.sprite.Scale = new Vector2f(paddle.sprite.Scale.X * paddleSizeMulti, paddle.sprite.Scale.Y);
+            }
         }
         
     }
@@ -89,7 +104,7 @@ public class Paddle
         Vector2f paddleTextureSize = (Vector2f) sprite.Texture.Size;
         sprite.Origin = 0.5f * paddleTextureSize;
         sprite.Scale = new Vector2f(Diameter / paddleTextureSize.Y, Diameter / paddleTextureSize.Y);
-        
+
         size = new Vector2f(sprite.GetGlobalBounds().Width, sprite.GetGlobalBounds().Height);
     }
 }
