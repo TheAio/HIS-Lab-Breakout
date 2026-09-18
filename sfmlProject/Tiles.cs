@@ -10,6 +10,9 @@ public class Tiles
     string[] tiles = new string[3]{"assets/tileBlue.png", "assets/tileGreen.png", "assets/tilePink.png"};
     Random seed = new();
     List<Vector2f> positions;
+    List<String> textures;
+    List<Boolean> isLiving;
+    //LinkedList<String> textures;
 
     private Vector2f size;
     
@@ -25,15 +28,16 @@ public class Tiles
             paddle.sprite.Position = new Vector2f((GraphicsSettings.ScreenW / 2f), 650f);
         }
         
-        for (int i = 0; i < positions.Count; i++)
+        for (int i = 0; i < isLiving.Count; i++)
         {
             var pos = positions[i];
-            if (Collision.CircleRectangle(ball.sprite.Position, Ball.Radius, pos, size, out Vector2f hit))
+            if (isLiving[i] && Collision.CircleRectangle(ball.sprite.Position, Ball.Radius, pos, size, out Vector2f hit))
             {
                 ball.sprite.Position += hit;
                 ball.Reflect(hit.Normalized());
                 powerup.SpawnPowerUp(positions[i]);
-                positions.RemoveAt(i);
+                isLiving[i] = false;
+                //positions.RemoveAt(i);
                 //i = 0; i är ju deklarerat i for loopen varje frame ändå? är inte i reduntant här? loopen körs ju ändå varje frame vilket innebär att 
                 ball.score += 100;
             }
@@ -42,10 +46,14 @@ public class Tiles
     
     public void Draw(RenderTarget target)
     {
-        for (int i = 0; i < positions.Count; i++)
+        for (int i = 0; i < isLiving.Count; i++)
         {
-            sprite.Position = positions[i];
-            target.Draw(sprite);
+            if (isLiving[i])
+            {
+                sprite.Position = positions[i];
+                sprite.Texture = new Texture(textures[i]);
+                target.Draw(sprite);
+            }
             /*int roll = seed.Next(0, 2);
             if (roll == 0)
             {
@@ -61,13 +69,22 @@ public class Tiles
 
     public void CreateTiles()
     {
+        Random seed = new();
         positions.Clear();
+        textures.Clear();
+        isLiving.Clear();
+        /*for (int i = 0; i <= 25; i++)
+        {
+        }*/
         for (int i = -2; i <= 2; i++)
         {
             for (int j = -2; j <= 2; j++)
             {
                 Vector2f pos = new Vector2f(GraphicsSettings.ScreenW * 0.5f + i * 96.0f, GraphicsSettings.ScreenH * 0.3f + j * 48.0f);
                 positions.Add(pos);
+                int roll = seed.Next(0,3);
+                textures.Add(tiles[roll]);
+                isLiving.Add(true);
             }
         }
     }
@@ -79,6 +96,8 @@ public class Tiles
         sprite = new Sprite();
         sprite.Texture = new Texture("assets/tileBlue.png");
         positions = new List<Vector2f>();
+        textures = new List<string>();
+        isLiving = new List<bool>();
         
         Vector2f tileTextureSize = (Vector2f)sprite.Texture.Size;
         sprite.Origin = 0.5f * tileTextureSize;
