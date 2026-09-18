@@ -12,6 +12,7 @@ public class Tiles
     List<Vector2f> positions;
     List<String> textures;
     List<Boolean> isLiving;
+    List<Texture> tileTextures;
 
     private Vector2f size;
     
@@ -48,7 +49,8 @@ public class Tiles
             if (isLiving[i])
             {
                 sprite.Position = positions[i];
-                sprite.Texture = new Texture(textures[i]);
+                sprite.Texture = tileTextures[i];
+                //sprite.Texture = new Texture(textures[i]);
                 target.Draw(sprite);
             }
         }
@@ -67,7 +69,8 @@ public class Tiles
                 Vector2f pos = new Vector2f(GraphicsSettings.ScreenW * 0.5f + i * 96.0f, GraphicsSettings.ScreenH * 0.3f + j * 48.0f);
                 positions.Add(pos);
                 int roll = seed.Next(0,3);
-                textures.Add(tiles[roll]);
+                //textures.Add(tiles[roll]);
+                tileTextures.Add(new Texture(tiles[roll]));
                 isLiving.Add(true);
             }
         }
@@ -82,6 +85,7 @@ public class Tiles
         positions = new List<Vector2f>();
         textures = new List<string>();
         isLiving = new List<bool>();
+        tileTextures = new List<Texture>();
         
         Vector2f tileTextureSize = (Vector2f)sprite.Texture.Size;
         sprite.Origin = 0.5f * tileTextureSize;
