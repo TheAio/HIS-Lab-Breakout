@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Timers;
 using SFML.System;
 using SFML.Window;
 using SFML.Graphics;
@@ -10,10 +11,10 @@ public class Paddle
     public const float Diameter = 20f;
     public const float Radius = Diameter * 0.5f;
     public float paddleSizeMulti = 1f;
+    private DateTime timer1 = new();
+    private DateTime timer2 = new();
     
-    Clock timer = new Clock();
-    private float startTimer = 0;
-    private bool isPowerup = false;
+    private bool isPoweredUp = false;
     
     public Vector2f size;
     
@@ -35,36 +36,46 @@ public class Paddle
             ball.sprite.Position += hit;
             ball.Reflect(hit.Normalized());
         }
+        
 
         foreach (Powerup pW in powerup.powerups.ToList())
         {
             if (Collision.CircleRectangle(pW.sprite.Position, Powerup.Radius, sprite.Position, size, out Vector2f shit))
             {
-                Console.WriteLine("shtu the fck up");
-                startTimer = timer.Restart().AsSeconds();
                 powerup.powerups.Remove(pW);
-                if (!isPowerup)
+                if (!isPoweredUp)
                 {
+                    Console.WriteLine("shtu the fck up");
                     paddleSizeMulti = 2f;
-                    ChangePaddleSize(paddle);
-                    isPowerup = true;
+                    IncreasePaddleSize(paddle);
+                    isPoweredUp = true;
+                    timer1 = DateTime.Now.AddSeconds(1);
                 }
             }
-            if (timer.ElapsedTime.AsSeconds() > 4)
-            {
-                paddleSizeMulti = 1f;
-                ChangePaddleSize(paddle);
-                isPowerup = false;
-            }
-            // restart timer
-            // have if with bool for powerup inside here
-            // check elapsed time outside
-            // when elapsed time reaches greater than 4 turn off powerup
+        }
+        
+        timer2 = DateTime.Now.AddSeconds(1);
+        double timer = (timer2 - timer1).TotalSeconds;
+        if ((timer > 4) && isPoweredUp)
+        {
+            Console.WriteLine("shtu the fck down");
+            paddleSizeMulti = 1f;
+            ResetPaddleSize(paddle);
+            isPoweredUp = false;
+        }
 
-            void ChangePaddleSize(Paddle paddle)
-            {
-                paddle.sprite.Scale = new Vector2f(paddle.sprite.Scale.X * paddleSizeMulti, paddle.sprite.Scale.Y);
-            }
+        Console.WriteLine(timer);
+        
+            
+        void IncreasePaddleSize(Paddle paddle)
+        {
+            paddle.sprite.Scale = new Vector2f(paddle.sprite.Scale.X * paddleSizeMulti, paddle.sprite.Scale.Y);
+        }
+
+        void ResetPaddleSize(Paddle pPaddle)
+        {
+            Vector2f paddleTextureSize = (Vector2f) sprite.Texture.Size;
+            sprite.Scale = new Vector2f(Diameter / paddleTextureSize.Y, Diameter / paddleTextureSize.Y);
         }
         
     }

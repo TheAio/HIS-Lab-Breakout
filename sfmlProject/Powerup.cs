@@ -43,7 +43,7 @@ public class Powerup
     }
     public void SpawnPowerUp(Vector2f spawnPosition)
     {
-        if (seed.Next(0,9) >= 0)
+        if (seed.Next(0,9) >= 4 && powerups.Count < 1)
         {
             powerups.Add(new Powerup());
             powerups[powerups.Count-1].sprite.Position = spawnPosition;
