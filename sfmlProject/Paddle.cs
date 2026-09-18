@@ -59,7 +59,6 @@ public class Paddle
         target.Draw(sprite);
     }
 
-    //TODO: RE-EVALUATE POSITION CONDITIONS
     public void HandleInput(ref Vector2f newPos, float speed)
     {
         if (Keyboard.IsKeyPressed(Keyboard.Key.A) || Keyboard.IsKeyPressed(Keyboard.Key.Left))

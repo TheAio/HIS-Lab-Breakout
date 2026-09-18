@@ -12,7 +12,6 @@ public class Tiles
     List<Vector2f> positions;
     List<String> textures;
     List<Boolean> isLiving;
-    //LinkedList<String> textures;
 
     private Vector2f size;
     
@@ -37,8 +36,6 @@ public class Tiles
                 ball.Reflect(hit.Normalized());
                 powerup.SpawnPowerUp(positions[i]);
                 isLiving[i] = false;
-                //positions.RemoveAt(i);
-                //i = 0; i är ju deklarerat i for loopen varje frame ändå? är inte i reduntant här? loopen körs ju ändå varje frame vilket innebär att 
                 ball.score += 100;
             }
         }
@@ -51,20 +48,9 @@ public class Tiles
             if (isLiving[i])
             {
                 sprite.Position = positions[i];
-                //sprite.Texture = new Texture(textures[i]);
-                //clubs are tasty
+                sprite.Texture = new Texture(textures[i]);
                 target.Draw(sprite);
             }
-            /*int roll = seed.Next(0, 2);
-            if (roll == 0)
-            {
-                sprite.Color = Color.Red;
-                
-            }
-            else if (roll == 1)
-            {
-                sprite.Color = Color.Yellow;
-            }*/
         }
     }
 
@@ -74,9 +60,6 @@ public class Tiles
         positions.Clear();
         textures.Clear();
         isLiving.Clear();
-        /*for (int i = 0; i <= 25; i++)
-        {
-        }*/
         for (int i = -2; i <= 2; i++)
         {
             for (int j = -2; j <= 2; j++)

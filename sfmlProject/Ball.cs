@@ -17,7 +17,6 @@ public class Ball
     public float speed;
     public float ballSpeedMultiplier = 250f;
     Random seed = new();
-    //public float roll;
     
     public Vector2f direction = new Vector2f(1,1) / MathF.Sqrt(2.0f);
     
@@ -71,9 +70,7 @@ public class Ball
             //If we touch the bottom, reduce health and reset ball.
             health--;
             newPos.Y = GraphicsSettings.ScreenH - Radius;
-            //newPos = new Vector2f(250, 300);
             newPos = paddle.sprite.Position - new  Vector2f(0, 5);
-            //float speed = deltaTime * 100.0f;
             isBallIdle = true;
         }
         else if (newPos.Y < Radius)
@@ -108,13 +105,6 @@ public class Ball
         if (health <= 0)
         {
             pause.PauseGame(paddle);
-            /*if (!pause.isPaused)
-            {
-                health = 3;
-                score = 0;
-                
-                tiles.CreateTiles();
-            }*/
         }
     }
     
